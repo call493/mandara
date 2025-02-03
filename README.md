@@ -19,6 +19,10 @@ This portfolio is a single-page application (SPA) built with **Vite + React + Re
 - **Vite**
 - **CSS** (existing `style.css` and `mediaqueries.css`)
 
+## Demo
+
+- Repo: `https://github.com/call493/mandara`
+
 ## Local development
 
 ```bash
@@ -38,3 +42,4 @@ npm run preview
 ## Contact
 
 - **Email**: `braxtonmandara254@gmail.com`
+- **LinkedIn**: `https://www.linkedin.com/in/braxton-m`
