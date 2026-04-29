@@ -580,6 +580,13 @@ section {
     line-height: 1.7;
 }
 
+.modal-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
 @media (max-width: 768px) {
     .modal-body { grid-template-columns: 1fr; }
     .modal-img-container img { height: 250px; min-height: auto; }

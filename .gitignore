@@ -1,1 +1,11 @@
 .agent
+
+# dependencies / build output
+node_modules/
+dist/
+
+# Vite caches
+.vite/
+
+# OS/editor noise
+.DS_Store
