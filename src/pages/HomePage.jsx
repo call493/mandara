@@ -44,19 +44,19 @@ export default function HomePage() {
     () => ({
       ASL: {
         title: 'ASL Logistics Identity',
-        img: '/Assets/ASL.jpg',
+        img: `${import.meta.env.BASE_URL}Assets/ASL.jpg`,
         desc: 'A comprehensive branding project for ASL Logistics. The goal was to create a visual identity that communicates speed, reliability, and global reach. I utilized negative space and bold typography to create a logo that stands out on fleet vehicles and digital platforms.',
         tags: ['Branding', 'Identity', 'Illustrator'],
       },
       Lumisnap: {
         title: 'Lumisnap Interface Design',
-        img: '/Assets/Lumisnap.jpg',
+        img: `${import.meta.env.BASE_URL}Assets/Lumisnap.jpg`,
         desc: 'UI/UX design for a modern photography portfolio platform. The focus was on a dark-mode first approach to let the photography stand out. Key features include a drag-and-drop gallery manager and seamless client proofing tools.',
         tags: ['UI/UX', 'Figma', 'App Design'],
       },
       LaptopOffers: {
         title: 'Laptop Offers E-commerce',
-        img: '/Assets/2ndoffers.jpg',
+        img: `${import.meta.env.BASE_URL}Assets/2ndoffers.jpg`,
         desc: 'A high-conversion landing page and e-commerce platform for refurbished electronics. I handled both the UI design and the Front-end development, ensuring the site was responsive and accessible. Sales increased by 40% post-launch.',
         tags: ['Web Dev', 'HTML/CSS', 'Conversion'],
       },
@@ -119,7 +119,7 @@ export default function HomePage() {
           <div className="hero-glow"></div>
           <img
             ref={heroImgRef}
-            src="/Assets/Braxton.jpg"
+            src={`${import.meta.env.BASE_URL}Assets/Braxton.jpg`}
             alt="Braxton Mandara"
             className="hero-img"
           />
@@ -279,7 +279,7 @@ export default function HomePage() {
             }}
           >
             <div className="work-img-wrapper">
-              <img src="/Assets/ASL.jpg" alt="ASL logo" loading="lazy" />
+              <img src={`${import.meta.env.BASE_URL}Assets/ASL.jpg`} alt="ASL logo" loading="lazy" />
             </div>
             <div className="work-content">
               <div className="work-tags">
@@ -300,7 +300,7 @@ export default function HomePage() {
             }}
           >
             <div className="work-img-wrapper">
-              <img src="/Assets/Lumisnap.jpg" alt="Lumisnap" loading="lazy" />
+              <img src={`${import.meta.env.BASE_URL}Assets/Lumisnap.jpg`} alt="Lumisnap" loading="lazy" />
             </div>
             <div className="work-content">
               <div className="work-tags">
@@ -321,7 +321,7 @@ export default function HomePage() {
             }}
           >
             <div className="work-img-wrapper">
-              <img src="/Assets/2ndoffers.jpg" alt="Laptop offers" loading="lazy" />
+              <img src={`${import.meta.env.BASE_URL}Assets/2ndoffers.jpg`} alt="Laptop offers" loading="lazy" />
             </div>
             <div className="work-content">
               <div className="work-tags">
