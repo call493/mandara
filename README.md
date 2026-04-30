@@ -38,8 +38,3 @@ Then open the URL printed by Vite (usually `http://localhost:5173/`).
 npm run build
 npm run preview
 ```
-
-## Contact
-
-- **Email**: `braxtonmandara254@gmail.com`
-- **LinkedIn**: `https://www.linkedin.com/in/braxton-m`
