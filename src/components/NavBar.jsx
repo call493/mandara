@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function NavBar({ activeSectionId }) {
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const containerRef = useRef(null);
 
@@ -21,6 +22,7 @@ export default function NavBar({ activeSectionId }) {
   const links = [
     { id: 'about', label: '// about', to: '/#about' },
     { id: 'projects', label: '// work', to: '/#projects' },
+    { id: 'blogs', label: '// blogs', to: '/blogs' },
     { id: 'contact', label: "Let's Chat", to: '/#contact', isCta: true },
   ];
 
@@ -53,7 +55,12 @@ export default function NavBar({ activeSectionId }) {
                 <li key={l.id}>
                   <Link
                     to={l.to}
-                    className={activeSectionId === l.id ? 'active' : ''}
+                    className={
+                      (l.id === 'blogs' && location.pathname === '/blogs') ||
+                      activeSectionId === l.id
+                        ? 'active'
+                        : ''
+                    }
                     onClick={handleLinkClick}
                   >
                     {l.label}
@@ -108,6 +115,15 @@ export default function NavBar({ activeSectionId }) {
                 onClick={handleLinkClick}
               >
                 // work
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/blogs"
+                className={location.pathname === '/blogs' ? 'active' : ''}
+                onClick={handleLinkClick}
+              >
+                // blogs
               </Link>
             </li>
             <li>

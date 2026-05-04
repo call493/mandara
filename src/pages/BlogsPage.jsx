@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import { blogs } from '../data/blogs';
+
 export default function BlogsPage() {
   return (
     <>
@@ -41,16 +44,37 @@ export default function BlogsPage() {
         }
 
         .article-link {
-          display: block;
-          padding: 32px 0;
+          display: grid;
+          grid-template-columns: 240px 1fr;
+          gap: 32px;
+          padding: 40px 0;
           border-bottom: 1px solid var(--card-border);
           transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           position: relative;
         }
 
         .article-link:hover {
-          padding-left: 12px;
           border-bottom-color: var(--accent);
+        }
+
+        .article-link:hover .article-image-wrapper img {
+          transform: scale(1.05);
+        }
+
+        .article-image-wrapper {
+          width: 100%;
+          aspect-ratio: 4/3;
+          border-radius: var(--radius-sm);
+          overflow: hidden;
+          border: 1px solid var(--card-border);
+          background: var(--card-bg);
+        }
+
+        .article-image-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
         }
 
         .article-link:hover .article-title {
@@ -79,10 +103,8 @@ export default function BlogsPage() {
         }
 
         .category-tag {
-          color: var(--text-main);
-          background: rgba(255,255,255,0.05);
-          padding: 2px 8px;
-          border-radius: 4px;
+          color: var(--accent);
+          font-weight: 600;
         }
 
         .article-title {
@@ -90,8 +112,9 @@ export default function BlogsPage() {
           font-size: 1.75rem;
           font-weight: 700;
           color: var(--text-main);
-          margin-bottom: 8px;
+          margin-bottom: 12px;
           transition: color 0.2s;
+          letter-spacing: -0.02em;
         }
 
         .article-excerpt {
@@ -104,17 +127,20 @@ export default function BlogsPage() {
         .arrow-icon {
           position: absolute;
           right: 0;
-          top: 36px;
+          top: 44px;
           font-size: 1.5rem;
           opacity: 0.3;
           transform: rotate(-45deg);
           transition: 0.3s ease;
         }
 
-        @media (max-width: 600px) {
-          .article-header {
-            flex-direction: column;
-            gap: 8px;
+        @media (max-width: 768px) {
+          .article-link {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+          .article-image-wrapper {
+            aspect-ratio: 16/9;
           }
           .arrow-icon {
             display: none;
@@ -135,69 +161,29 @@ export default function BlogsPage() {
         </header>
 
         <div className="blog-list">
-          <a href="#" className="article-link hidden delay-100">
-            <div className="article-header">
-              <div className="article-meta">
-                <span className="category-tag">Product</span>
-                <span>JAN 2025</span>
-                <span>5 MIN READ</span>
+          {blogs.map((blog, index) => (
+            <Link 
+              key={blog.slug}
+              to={`/blogs/${blog.slug}`} 
+              className={`article-link hidden show delay-${(index + 1) * 100}`}
+            >
+              <div className="article-image-wrapper">
+                <img src={blog.image} alt="" loading="lazy" />
               </div>
-              <div className="arrow-icon">→</div>
-            </div>
-            <h3 className="article-title">Designing trustworthy payment flows</h3>
-            <p className="article-excerpt">
-              How we shaped low-friction, high-trust experiences for millions of shoppers at
-              Amazon Pay by focusing on micro-copy and timing.
-            </p>
-          </a>
-
-          <a href="#" className="article-link hidden delay-200">
-            <div className="article-header">
-              <div className="article-meta">
-                <span className="category-tag">Process</span>
-                <span>DEC 2024</span>
-                <span>4 MIN READ</span>
+              <div className="article-content">
+                <div className="article-header">
+                  <div className="article-meta">
+                    <span className="category-tag">{blog.category}</span>
+                    <span>{blog.date}</span>
+                    <span>{blog.readTime}</span>
+                  </div>
+                  <div className="arrow-icon">→</div>
+                </div>
+                <h3 className="article-title">{blog.title}</h3>
+                <p className="article-excerpt">{blog.excerpt}</p>
               </div>
-              <div className="arrow-icon">→</div>
-            </div>
-            <h3 className="article-title">From brief to launch in 10 days</h3>
-            <p className="article-excerpt">
-              A fast-track case study on aligning stakeholders, prototyping in code, and
-              shipping with confidence under tight deadlines.
-            </p>
-          </a>
-
-          <a href="#" className="article-link hidden delay-300">
-            <div className="article-header">
-              <div className="article-meta">
-                <span className="category-tag">Engineering</span>
-                <span>NOV 2024</span>
-                <span>3 MIN READ</span>
-              </div>
-              <div className="arrow-icon">→</div>
-            </div>
-            <h3 className="article-title">Microinteractions that earn trust</h3>
-            <p className="article-excerpt">
-              Small motions that guide users and reduce anxiety in checkout, identity
-              verification, and confirmation screens.
-            </p>
-          </a>
-
-          <a href="#" className="article-link hidden delay-400">
-            <div className="article-header">
-              <div className="article-meta">
-                <span className="category-tag">Career</span>
-                <span>OCT 2024</span>
-                <span>6 MIN READ</span>
-              </div>
-              <div className="arrow-icon">→</div>
-            </div>
-            <h3 className="article-title">The designer who codes</h3>
-            <p className="article-excerpt">
-              Why learning React changed my design career and how it bridges the gap between
-              Figma files and production environments.
-            </p>
-          </a>
+            </Link>
+          ))}
         </div>
       </main>
 

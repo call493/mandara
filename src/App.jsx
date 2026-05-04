@@ -3,6 +3,7 @@ import Layout from './components/Layout.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
 import BlogsPage from './pages/BlogsPage.jsx';
+import BlogDetail from './pages/BlogDetail.jsx';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/blogs/:slug" element={<BlogDetail />} />
         <Route path="*" element={<HomePage />} />
       </Route>
     </Routes>
