@@ -1,5 +1,19 @@
 export const blogs = [
   {
+    slug: 'human-centered-design-in-the-age-of-ai',
+    title: 'Human-Centered Design in the Age of AI',
+    category: 'Design',
+    date: 'MAY 2026',
+    readTime: '22 MIN READ',
+    image: '/mandara/Assets/blogs/hcd-ai-blog.png',
+    excerpt: 'As AI reshapes our digital interfaces, designing for people with genuine empathy has never mattered more.',
+    content: `
+      <p>We are living through one of the most consequential transitions in the history of product design. Every assumption we held about how users interact with software is being rapidly dismantled by artificial intelligence.</p>
+      <p>Human-Centered Design (HCD) was never just a methodology. It was a declaration: that the needs, emotions, limitations, and aspirations of real human beings must sit at the center of every design decision.</p>
+    `
+  },
+
+  {
     slug: 'designing-trustworthy-payment-flows',
     title: 'Designing trustworthy payment flows',
     category: 'Product',
