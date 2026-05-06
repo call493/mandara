@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { blogs } from '../data/blogs';
 import { useEffect, useState } from 'react';
 import HumanCenteredDesignBlog from './HumanCenteredDesignBlog';
+import AIAestheticBlog from './AIAestheticBlog';
 
 export default function BlogDetail() {
   const { slug } = useParams();
@@ -34,6 +35,10 @@ export default function BlogDetail() {
 
   if (slug === 'human-centered-design-in-the-age-of-ai') {
     return <HumanCenteredDesignBlog />;
+  }
+
+  if (slug === 'who-owns-the-aesthetic-of-ai') {
+    return <AIAestheticBlog />;
   }
 
   const shareUrl = window.location.href;

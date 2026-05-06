@@ -1,5 +1,19 @@
 export const blogs = [
   {
+    slug: 'who-owns-the-aesthetic-of-ai',
+    title: 'Who Owns the Aesthetic of AI?',
+    category: 'Critique',
+    date: 'MAY 2026',
+    readTime: '18 MIN READ',
+    image: '/mandara/Assets/blogs/ai-aesthetic-blog.png',
+    excerpt: 'Why all AI-generated interfaces look the same, and what that sameness is doing to our culture.',
+    content: `
+      <p>Open ten AI products right now. Any ten. Look at them side by side and notice something: they all look like they were designed by the same person on the same afternoon in the same mood.</p>
+      <p>This is not coincidence. It is not the natural convergence of good design principles. It is something more troubling: the visual output of a feedback loop so powerful it is flattening human aesthetic culture at scale.</p>
+    `
+  },
+
+  {
     slug: 'human-centered-design-in-the-age-of-ai',
     title: 'Human-Centered Design in the Age of AI',
     category: 'Design',

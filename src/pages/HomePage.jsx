@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectModal from '../components/ProjectModal.jsx';
+import { blogs } from '../data/blogs';
 
 export default function HomePage() {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
@@ -336,6 +337,38 @@ export default function HomePage() {
         <div className="center-btn">
           <Link to="/projects" className="btn-pill secondary">
             View Archive
+          </Link>
+        </div>
+      </section>
+
+      <section id="recent-blogs">
+        <div className="section-header">
+          <p className="section-subtitle">04. LATEST NOTES</p>
+          <h2 className="section-title">Writing & Insights</h2>
+        </div>
+
+        <div className="home-blog-grid">
+          {blogs.slice(0, 2).map((blog, idx) => (
+            <Link key={blog.slug} to={`/blogs/${blog.slug}`} className={`home-blog-card hidden delay-${(idx + 2) * 100}`}>
+              <div className="home-blog-img">
+                <img src={blog.image} alt="" loading="lazy" />
+              </div>
+              <div className="home-blog-content">
+                <div className="home-blog-meta">
+                  <span className="home-blog-cat">{blog.category}</span>
+                  <span>{blog.date}</span>
+                </div>
+                <h3 className="home-blog-title">{blog.title}</h3>
+                <p className="home-blog-excerpt">{blog.excerpt}</p>
+                <span className="home-blog-link">Read Note →</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="center-btn" style={{ marginTop: '48px' }}>
+          <Link to="/blogs" className="btn-pill secondary">
+            Read All Notes
           </Link>
         </div>
       </section>
