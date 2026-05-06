@@ -338,7 +338,7 @@ export default function BlogsPage() {
             margin: '0 auto',
             fontFamily: 'var(--font-mono)',
             fontSize: '0.8rem',
-            letter-spacing: '0.05em'
+            letterSpacing: '0.05em'
           }}
         >
           © 2026 Braxton Mandara
