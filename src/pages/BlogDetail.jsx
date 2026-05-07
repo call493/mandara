@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { blogs } from '../data/blogs';
 import { useEffect, useState } from 'react';
+import SEO from '../components/SEO.jsx';
 import HumanCenteredDesignBlog from './HumanCenteredDesignBlog';
 import AIAestheticBlog from './AIAestheticBlog';
 import PromptAsInterface from './PromptAsInterface';
@@ -56,6 +57,13 @@ export default function BlogDetail() {
 
   return (
     <>
+      <SEO
+        title={blog.title}
+        description={blog.excerpt}
+        image={blog.image}
+        url={`https://braxtonmandara.com/blogs/${blog.slug}`}
+        type="article"
+      />
       <style>{`
         .reading-progress-bar {
           position: fixed;

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO.jsx';
 import { blogs } from '../data/blogs';
 
 /* ── Scroll-reveal hook ── */
@@ -77,6 +78,7 @@ export default function BlogsPage() {
 
   return (
     <>
+      <SEO title="Writing & Insights" description="Thoughts on product design, engineering systems, and the process of shipping high-quality software." />
       <style>{`
         /* ── Base ── */
         .blogs-main {

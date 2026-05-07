@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO.jsx';
 import { projects } from '../data/projects';
 import { contact } from '../data/contact';
 
 export default function ProjectsPage() {
   return (
     <>
+      <SEO title="Project Archive" description="A collection of my work in branding, UI/UX, and web development." />
       <section id="all-projects">
         <p className="section__text">All Of My</p>
         <h1 className="title">Work</h1>

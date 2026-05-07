@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectModal from '../components/ProjectModal.jsx';
+import SEO from '../components/SEO.jsx';
 import { blogs } from '../data/blogs';
 import { projects } from '../data/projects';
 import { contact } from '../data/contact';
@@ -52,6 +53,7 @@ export default function HomePage() {
 
   return (
     <>
+      <SEO title="Product Designer & Developer" />
       <section id="profile" ref={heroRef}>
         <div className="section__text">
           <div className="hero-eyebrow">
