@@ -270,7 +270,11 @@ export default function BlogDetail() {
         </header>
 
         {blog.image && (
-          <img src={blog.image} alt="" className="blog-hero-image" />
+          <img
+            src={blog.image.startsWith('http') ? blog.image : `${import.meta.env.BASE_URL}${blog.image}`}
+            alt=""
+            className="blog-hero-image"
+          />
         )}
 
         <div className="blog-detail-excerpt">

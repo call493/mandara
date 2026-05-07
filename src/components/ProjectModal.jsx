@@ -43,7 +43,11 @@ export default function ProjectModal({ project, onClose }) {
 
         <div className="modal-body">
           <div className="modal-img-container">
-            <img id="modal-img" src={project.img} alt={project.title} />
+            <img
+              id="modal-img"
+              src={`${import.meta.env.BASE_URL}${project.img}`}
+              alt={project.title}
+            />
           </div>
           <div className="modal-text">
             <h2 id="modal-title">{project.title}</h2>

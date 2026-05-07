@@ -1,7 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectModal from '../components/ProjectModal.jsx';
 import { blogs } from '../data/blogs';
+import { projects } from '../data/projects';
+import { contact } from '../data/contact';
 
 export default function HomePage() {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
@@ -41,31 +43,9 @@ export default function HomePage() {
     };
   }, []);
 
-  const projects = useMemo(
-    () => ({
-      ASL: {
-        title: 'ASL Logistics Identity',
-        img: `${import.meta.env.BASE_URL}Assets/ASL.jpg`,
-        desc: 'A comprehensive branding project for ASL Logistics. The goal was to create a visual identity that communicates speed, reliability, and global reach. I utilized negative space and bold typography to create a logo that stands out on fleet vehicles and digital platforms.',
-        tags: ['Branding', 'Identity', 'Illustrator'],
-      },
-      Lumisnap: {
-        title: 'Lumisnap Interface Design',
-        img: `${import.meta.env.BASE_URL}Assets/Lumisnap.jpg`,
-        desc: 'UI/UX design for a modern photography portfolio platform. The focus was on a dark-mode first approach to let the photography stand out. Key features include a drag-and-drop gallery manager and seamless client proofing tools.',
-        tags: ['UI/UX', 'Figma', 'App Design'],
-      },
-      LaptopOffers: {
-        title: 'Laptop Offers E-commerce',
-        img: `${import.meta.env.BASE_URL}Assets/2ndoffers.jpg`,
-        desc: 'A high-conversion landing page and e-commerce platform for refurbished electronics. I handled both the UI design and the Front-end development, ensuring the site was responsive and accessible. Sales increased by 40% post-launch.',
-        tags: ['Web Dev', 'HTML/CSS', 'Conversion'],
-      },
-    }),
-    [],
-  );
-
-  const selectedProject = selectedProjectId ? projects[selectedProjectId] : null;
+  const selectedProject = selectedProjectId
+    ? projects.find((p) => p.id === selectedProjectId)
+    : null;
 
   const faviconFallback =
     'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23222%22 rx=%2220%22/><text y=%22.9em%22 font-size=%2270%22 x=%2250%%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>W</text></svg>';
@@ -95,7 +75,7 @@ export default function HomePage() {
             <a className="btn-pill primary" href="#projects">
               View Selected Work
             </a>
-            <a className="btn-pill secondary" href="mailto:braxtonmandara254@gmail.com">
+            <a className="btn-pill secondary" href={`mailto:${contact.email}`}>
               Email Me
             </a>
           </div>
@@ -270,68 +250,34 @@ export default function HomePage() {
         </div>
 
         <div className="work-grid">
-          <div
-            className="work-card hidden delay-200"
-            onClick={() => setSelectedProjectId('ASL')}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') setSelectedProjectId('ASL');
-            }}
-          >
-            <div className="work-img-wrapper">
-              <img src={`${import.meta.env.BASE_URL}Assets/ASL.jpg`} alt="ASL logo" loading="lazy" />
-            </div>
-            <div className="work-content">
-              <div className="work-tags">
-                <span>Branding</span>
-                <span>Identity</span>
+          {projects.slice(0, 3).map((project, idx) => (
+            <div
+              key={project.id}
+              className={`work-card hidden delay-${(idx + 2) * 100}`}
+              onClick={() => setSelectedProjectId(project.id)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') setSelectedProjectId(project.id);
+              }}
+            >
+              <div className="work-img-wrapper">
+                <img
+                  src={`${import.meta.env.BASE_URL}${project.img}`}
+                  alt={project.title}
+                  loading="lazy"
+                />
               </div>
-              <h3>ASL Logistics Identity</h3>
-            </div>
-          </div>
-
-          <div
-            className="work-card hidden delay-300"
-            onClick={() => setSelectedProjectId('Lumisnap')}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') setSelectedProjectId('Lumisnap');
-            }}
-          >
-            <div className="work-img-wrapper">
-              <img src={`${import.meta.env.BASE_URL}Assets/Lumisnap.jpg`} alt="Lumisnap" loading="lazy" />
-            </div>
-            <div className="work-content">
-              <div className="work-tags">
-                <span>UI/UX</span>
-                <span>App Design</span>
+              <div className="work-content">
+                <div className="work-tags">
+                  {project.tags.slice(0, 2).map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <h3>{project.title}</h3>
               </div>
-              <h3>Lumisnap Interface</h3>
             </div>
-          </div>
-
-          <div
-            className="work-card hidden delay-400"
-            onClick={() => setSelectedProjectId('LaptopOffers')}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') setSelectedProjectId('LaptopOffers');
-            }}
-          >
-            <div className="work-img-wrapper">
-              <img src={`${import.meta.env.BASE_URL}Assets/2ndoffers.jpg`} alt="Laptop offers" loading="lazy" />
-            </div>
-            <div className="work-content">
-              <div className="work-tags">
-                <span>Web Dev</span>
-                <span>E-commerce</span>
-              </div>
-              <h3>Laptop Offers Platform</h3>
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="center-btn">
@@ -380,20 +326,20 @@ export default function HomePage() {
           Currently open for new opportunities in Product Design &amp; Front-end Dev.
         </p>
 
-        <a href="mailto:braxtonmandara254@gmail.com" className="btn-pill primary big-btn">
+        <a href={`mailto:${contact.email}`} className="btn-pill primary big-btn">
           Say Hello
         </a>
 
         <footer>
           <div className="footer-links">
-            <a href="https://instagram.com/brax.media" target="_blank" rel="noopener noreferrer">
+            <a href={contact.instagram} target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
-            <a href="https://github.com/call493" target="_blank" rel="noopener noreferrer">
+            <a href={contact.github} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
           </div>
-          <p className="copyright">© 2026 Braxton Mandara</p>
+          <p className="copyright">© {new Date().getFullYear()} Braxton Mandara</p>
         </footer>
       </section>
 
