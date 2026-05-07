@@ -3,6 +3,8 @@ import { blogs } from '../data/blogs';
 import { useEffect, useState } from 'react';
 import HumanCenteredDesignBlog from './HumanCenteredDesignBlog';
 import AIAestheticBlog from './AIAestheticBlog';
+import PromptAsInterface from './PromptAsInterface';
+import SoundAsUX from './SoundAsUX';
 
 export default function BlogDetail() {
   const { slug } = useParams();
@@ -41,6 +43,14 @@ export default function BlogDetail() {
     return <AIAestheticBlog />;
   }
 
+  if (slug === 'prompt-as-interface') {
+    return <PromptAsInterface />;
+  }
+
+  if (slug === 'sound-as-ux') {
+    return <SoundAsUX />;
+  }
+
   const shareUrl = window.location.href;
   const shareText = `Check out this article: ${blog.title}`;
 
@@ -61,7 +71,7 @@ export default function BlogDetail() {
         .blog-detail-container {
           max-width: 850px;
           margin: 0 auto;
-          padding: 120px 24px 96px;
+          padding: 80px 24px 96px;
         }
 
         .back-link {
@@ -71,7 +81,7 @@ export default function BlogDetail() {
           font-family: var(--font-mono);
           color: var(--text-muted);
           font-size: 0.9rem;
-          margin-bottom: 40px;
+          margin-bottom: 32px;
           transition: color 0.3s;
         }
 
@@ -80,17 +90,18 @@ export default function BlogDetail() {
         }
 
         .blog-detail-header {
-          margin-bottom: 64px;
+          margin-bottom: 48px;
         }
 
         .blog-detail-meta {
           font-family: var(--font-mono);
           color: var(--accent);
-          font-size: 0.85rem;
-          margin-bottom: 24px;
+          font-size: 0.8rem;
+          margin-bottom: 20px;
           display: flex;
           align-items: center;
           gap: 16px;
+          letter-spacing: 0.05em;
         }
 
         .category-pill {
@@ -101,9 +112,9 @@ export default function BlogDetail() {
         }
 
         .blog-detail-title {
-          font-size: clamp(2.5rem, 6vw, 4.5rem);
-          margin-bottom: 32px;
-          line-height: 1.05;
+          font-size: clamp(2.2rem, 6vw, 4rem);
+          margin-bottom: 24px;
+          line-height: 1.1;
           letter-spacing: -0.04em;
           font-weight: 800;
         }
@@ -114,28 +125,29 @@ export default function BlogDetail() {
           object-fit: cover;
           border-radius: var(--radius-lg);
           border: 1px solid var(--card-border);
-          margin-bottom: 64px;
+          margin-bottom: 48px;
           box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .blog-detail-excerpt {
-          font-size: 1.5rem;
+          font-size: 1.3rem;
           color: var(--text-main);
           line-height: 1.5;
-          margin-bottom: 64px;
+          margin-bottom: 48px;
           font-weight: 500;
           letter-spacing: -0.01em;
+          opacity: 0.9;
         }
 
         .blog-content {
-          font-size: 1.2rem;
+          font-size: 1.15rem;
           line-height: 1.8;
           color: var(--text-main);
         }
 
         .blog-content p {
-          margin-bottom: 32px;
-          opacity: 0.9;
+          margin-bottom: 24px;
+          opacity: 0.85;
         }
 
         .blog-content h3 {

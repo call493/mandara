@@ -75,9 +75,11 @@ export default function NavBar({ activeSectionId }) {
       <nav id="hamburger-nav">
         <div className="logo">
           <Link to="/#profile" aria-label="Go to top">
-            BM
+            BM<span className="accent">.</span>
           </Link>
         </div>
+
+        <div className={`menu-overlay ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(false)}></div>
 
         <div className="hamburger-menu" ref={containerRef}>
           <div
@@ -96,45 +98,31 @@ export default function NavBar({ activeSectionId }) {
             <span></span>
           </div>
 
-          <div
-            className={`menu-links ${menuOpen ? 'open' : ''}`}
-          >
-            <li>
-              <Link
-                to="/#about"
-                className={activeSectionId === 'about' ? 'active' : ''}
-                onClick={handleLinkClick}
-              >
-                // about
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/#projects"
-                className={activeSectionId === 'projects' ? 'active' : ''}
-                onClick={handleLinkClick}
-              >
-                // work
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/blogs"
-                className={location.pathname === '/blogs' ? 'active' : ''}
-                onClick={handleLinkClick}
-              >
-                // blogs
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/#contact"
-                className={activeSectionId === 'contact' ? 'active' : ''}
-                onClick={handleLinkClick}
-              >
-                Let's Chat
-              </Link>
-            </li>
+          <div className={`menu-links ${menuOpen ? 'open' : ''}`}>
+            <div className="menu-header">
+              <span className="menu-label">Navigation</span>
+            </div>
+            <ul className="menu-list">
+              {links.map((l) => (
+                <li key={l.id}>
+                  <Link
+                    to={l.to}
+                    className={`${l.isCta ? 'menu-cta' : ''} ${
+                      (l.id === 'blogs' && location.pathname === '/blogs') ||
+                      activeSectionId === l.id
+                        ? 'active'
+                        : ''
+                    }`}
+                    onClick={handleLinkClick}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="menu-footer">
+              <p>© 2026 Braxton Mandara</p>
+            </div>
           </div>
         </div>
       </nav>

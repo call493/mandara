@@ -1,5 +1,32 @@
 export const blogs = [
   {
+    slug: 'sound-as-ux',
+    title: 'Sound as UX',
+    category: 'Audio Design',
+    date: 'MAY 2026',
+    readTime: '20 MIN READ',
+    image: 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2029&auto=format&fit=crop',
+    excerpt: 'The criminally underinvested discipline of audio design in digital products — and the companies doing it right.',
+    content: `
+      <p>Sound is the most emotionally direct channel available to a product designer. It bypasses cognition, landing in the limbic system before the prefrontal cortex has had a chance to process what happened.</p>
+      <p>This is not a minor oversight. It is a multi-billion-dollar mistake that the best companies in the world have quietly corrected, building sonic identities as carefully considered as their visual ones.</p>
+    `
+  },
+  {
+    slug: 'prompt-as-interface',
+    title: 'Prompt as Interface',
+    category: 'AI Design',
+    date: 'MAY 2026',
+    readTime: '20 MIN READ',
+    image: '/mandara/Assets/blogs/prompt-as-interface.png',
+    excerpt: 'Why writing is now a design skill — and how to teach users to communicate with AI.',
+    content: `
+      <p>For most of computing history, the interface was a thing you could see. Then language models arrived, and the interface became invisible. The primary mechanism for controlling a vast, probabilistic, generative system is now a text box — blank, patient, offering no affordances whatsoever.</p>
+      <p>Writing is now a design skill — not in the traditional UX sense, but as the literal interface: the act of constructing a string of words that reliably produces the output you want from an AI system.</p>
+    `
+  },
+
+  {
     slug: 'who-owns-the-aesthetic-of-ai',
     title: 'Who Owns the Aesthetic of AI?',
     category: 'Critique',

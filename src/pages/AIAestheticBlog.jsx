@@ -67,20 +67,20 @@ const GLOBAL_CSS = `
 
   /* ── Layout shell ── */
   .aab-shell {
-    max-width: 1180px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 0 40px;
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 80px;
+    grid-template-columns: 180px 1fr;
+    gap: 64px;
     align-items: flex-start;
   }
 
   /* ── Sticky TOC ── */
   .aab-toc-col {
     position: sticky;
-    top: 120px;
-    padding-top: 80px;
+    top: 96px;
+    padding-top: 64px;
   }
   .aab-toc-label {
     font-size: 9px;
@@ -111,13 +111,13 @@ const GLOBAL_CSS = `
   .aab-toc-item.active { color: var(--yellow); border-left-color: var(--yellow); }
 
   /* ── Main column ── */
-  .aab-main { min-width: 0; padding-bottom: 120px; }
+  .aab-main { min-width: 0; padding-bottom: 96px; }
 
   /* ══ HERO ══ */
   .aab-hero {
-    padding: 80px 0 60px;
+    padding: 64px 0 48px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 80px;
+    margin-bottom: 64px;
     position: relative;
   }
   .aab-hero-label {
@@ -125,7 +125,7 @@ const GLOBAL_CSS = `
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--yellow);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
     gap: 14px;
@@ -141,12 +141,12 @@ const GLOBAL_CSS = `
 
   .aab-h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(46px, 6.5vw, 86px);
+    font-size: clamp(38px, 6.5vw, 72px);
     font-weight: 700;
-    line-height: 1.0;
+    line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--ash);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
   .aab-h1 em {
     font-style: italic;
@@ -155,11 +155,11 @@ const GLOBAL_CSS = `
   }
   .aab-h1-sub {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px, 2.5vw, 26px);
+    font-size: clamp(17px, 2.5vw, 22px);
     font-weight: 300;
     font-style: italic;
     color: var(--muted);
-    margin-bottom: 40px;
+    margin-bottom: 36px;
     line-height: 1.4;
   }
   .aab-meta {
@@ -193,7 +193,7 @@ const GLOBAL_CSS = `
 
   /* ══ SECTION MARKERS ══ */
   .aab-section-wrap {
-    margin: 72px 0 36px;
+    margin: 60px 0 28px;
     display: flex;
     align-items: flex-end;
     gap: 20px;
@@ -201,7 +201,7 @@ const GLOBAL_CSS = `
   }
   .aab-section-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 80px;
+    font-size: 64px;
     font-weight: 700;
     line-height: 0.85;
     color: var(--border);
@@ -219,7 +219,7 @@ const GLOBAL_CSS = `
   }
   .aab-h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(26px, 3vw, 36px);
+    font-size: clamp(24px, 3vw, 32px);
     font-weight: 700;
     color: var(--ash);
     line-height: 1.15;
@@ -241,8 +241,8 @@ const GLOBAL_CSS = `
 
   /* ══ PULL QUOTE ══ */
   .aab-pull {
-    margin: 52px -20px;
-    padding: 36px 40px;
+    margin: 48px -20px;
+    padding: 32px 40px;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     position: relative;
@@ -250,18 +250,18 @@ const GLOBAL_CSS = `
   .aab-pull::before {
     content: '"';
     font-family: 'Cormorant Garamond', serif;
-    font-size: 120px;
+    font-size: 100px;
     font-weight: 700;
     color: var(--yellow);
     opacity: 0.15;
     position: absolute;
-    top: -20px; left: 28px;
+    top: -15px; left: 28px;
     line-height: 1;
     pointer-events: none;
   }
   .aab-pull-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(22px, 2.8vw, 30px);
+    font-size: clamp(20px, 2.8vw, 26px);
     font-style: italic;
     font-weight: 300;
     color: var(--ash);
@@ -283,8 +283,8 @@ const GLOBAL_CSS = `
     border: 1px solid var(--border);
     border-left: 2px solid var(--yellow);
     border-radius: 0 4px 4px 0;
-    padding: 28px 32px;
-    margin: 36px 0;
+    padding: 24px 28px;
+    margin: 32px 0;
   }
   .aab-callout-title {
     font-size: 9px;
@@ -317,12 +317,12 @@ const GLOBAL_CSS = `
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2px;
-    margin: 40px 0;
+    margin: 36px 0;
     border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
   }
-  .aab-split-col { padding: 28px 24px; }
+  .aab-split-col { padding: 24px 22px; }
   .aab-split-col:first-child { background: rgba(232,228,220,0.03); border-right: 1px solid var(--border); }
   .aab-split-col:last-child  { background: rgba(232,212,77,0.04); }
   .aab-split-label {
@@ -362,20 +362,20 @@ const GLOBAL_CSS = `
     border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
-    margin: 40px 0;
+    margin: 36px 0;
   }
   .aab-stat {
     background: var(--ink);
-    padding: 28px 20px;
+    padding: 24px 18px;
     text-align: center;
   }
   .aab-stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 52px;
+    font-size: 44px;
     font-weight: 700;
     color: var(--yellow);
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     letter-spacing: -0.02em;
   }
   .aab-stat-label {
@@ -390,7 +390,7 @@ const GLOBAL_CSS = `
     border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
-    margin: 40px 0;
+    margin: 36px 0;
   }
   .aab-case-head {
     background: rgba(232,212,77,0.08);
@@ -416,7 +416,7 @@ const GLOBAL_CSS = `
     color: var(--ash);
   }
   .aab-case-body {
-    padding: 28px 28px;
+    padding: 24px 28px;
     background: var(--ink-2);
   }
   .aab-case-body .aab-p { font-size: 13px; margin-bottom: 14px; }
@@ -427,8 +427,8 @@ const GLOBAL_CSS = `
     background: rgba(192,67,42,0.1);
     border: 1px solid rgba(192,67,42,0.3);
     border-radius: 4px;
-    padding: 36px 40px;
-    margin: 44px 0;
+    padding: 32px 36px;
+    margin: 40px 0;
     position: relative;
     overflow: hidden;
   }
@@ -443,7 +443,7 @@ const GLOBAL_CSS = `
   }
   .aab-highlight h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--ash);
     margin-bottom: 14px;
@@ -460,8 +460,8 @@ const GLOBAL_CSS = `
   .aab-note {
     background: rgba(232,212,77,0.05);
     border-left: 2px solid rgba(232,212,77,0.4);
-    padding: 16px 20px;
-    margin: 28px 0;
+    padding: 14px 18px;
+    margin: 24px 0;
     font-size: 13px;
     font-weight: 300;
     color: rgba(232,228,220,0.65);
@@ -472,15 +472,15 @@ const GLOBAL_CSS = `
   /* ══ LARGE TEXT FEATURE ══ */
   .aab-feature-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4.5vw, 54px);
+    font-size: clamp(28px, 4.5vw, 44px);
     font-weight: 300;
     font-style: italic;
-    line-height: 1.2;
+    line-height: 1.25;
     color: var(--ash);
-    padding: 52px 0;
+    padding: 44px 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    margin: 52px 0;
+    margin: 48px 0;
     letter-spacing: -0.01em;
   }
   .aab-feature-text span { color: var(--yellow); }
@@ -490,13 +490,13 @@ const GLOBAL_CSS = `
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    margin: 36px 0;
+    margin: 32px 0;
   }
   .aab-card {
     background: var(--ink-2);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 24px 22px;
+    padding: 22px 20px;
     transition: border-color 0.25s;
     position: relative;
     overflow: hidden;
@@ -515,11 +515,11 @@ const GLOBAL_CSS = `
   .aab-card:hover::before { transform: scaleX(1); }
   .aab-card-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--border);
     line-height: 1;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .aab-card h3 {
     font-family: 'Instrument Sans', sans-serif;
@@ -538,21 +538,21 @@ const GLOBAL_CSS = `
   }
 
   /* ══ TIMELINE ══ */
-  .aab-timeline { margin: 36px 0; }
+  .aab-timeline { margin: 32px 0; }
   .aab-tl-item {
     display: flex;
     gap: 20px;
-    padding: 22px 0;
+    padding: 20px 0;
     border-bottom: 1px solid var(--border2);
   }
   .aab-tl-item:last-child { border-bottom: none; }
   .aab-tl-year {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--yellow);
     flex-shrink: 0;
-    width: 64px;
+    width: 60px;
     line-height: 1.2;
   }
   .aab-tl-content h4 {
@@ -572,8 +572,8 @@ const GLOBAL_CSS = `
 
   /* ══ FOOTER ══ */
   .aab-footer {
-    margin-top: 100px;
-    padding: 36px 0;
+    margin-top: 80px;
+    padding: 30px 0;
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
@@ -612,13 +612,18 @@ const GLOBAL_CSS = `
     }
     .aab-toc-col { display: none; }
     .aab-card-grid { grid-template-columns: 1fr; }
+    .aab-main { padding-bottom: 64px; }
+    .aab-hero { padding: 48px 0 40px; margin-bottom: 48px; }
   }
   @media (max-width: 600px) {
     .aab-stats { grid-template-columns: 1fr; }
     .aab-split { grid-template-columns: 1fr; }
     .aab-split-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
-    .aab-pull { margin: 36px 0; }
-    .aab-h1 { font-size: 42px; }
+    .aab-pull { margin: 32px 0; }
+    .aab-h1 { font-size: 36px; }
+    .aab-h1-sub { margin-bottom: 28px; }
+    .aab-section-wrap { margin: 48px 0 24px; }
+    .aab-section-num { font-size: 48px; }
   }
 `;
 
