@@ -9,3 +9,6 @@ dist/
 
 # OS/editor noise
 .DS_Store
+# Build artifacts
+dist/
+tmp_dist/
