@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO.jsx';
 import { blogs } from '../data/blogs';
 
 /* ── Scroll-reveal hook ── */
@@ -30,6 +31,7 @@ function useRevealOnScroll(containerRef) {
 /* ── Image with gradient fallback ── */
 function BlogImage({ src, alt, className }) {
   const [failed, setFailed] = useState(false);
+  const fullSrc = src.startsWith('http') ? src : `${import.meta.env.BASE_URL}${src}`;
   return failed ? (
     <div
       className={className}
@@ -45,7 +47,7 @@ function BlogImage({ src, alt, className }) {
       ✦
     </div>
   ) : (
-    <img src={src} alt={alt} onError={() => setFailed(true)} />
+    <img src={fullSrc} alt={alt} onError={() => setFailed(true)} />
   );
 }
 
@@ -76,6 +78,7 @@ export default function BlogsPage() {
 
   return (
     <>
+      <SEO title="Writing & Insights" description="Thoughts on product design, engineering systems, and the process of shipping high-quality software." />
       <style>{`
         /* ── Base ── */
         .blogs-main {

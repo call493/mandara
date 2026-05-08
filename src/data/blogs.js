@@ -18,7 +18,7 @@ export const blogs = [
     category: 'AI Design',
     date: 'MAY 2026',
     readTime: '20 MIN READ',
-    image: '/mandara/Assets/blogs/prompt-as-interface.png',
+    image: 'Assets/blogs/prompt-as-interface.png',
     excerpt: 'Why writing is now a design skill — and how to teach users to communicate with AI.',
     content: `
       <p>For most of computing history, the interface was a thing you could see. Then language models arrived, and the interface became invisible. The primary mechanism for controlling a vast, probabilistic, generative system is now a text box — blank, patient, offering no affordances whatsoever.</p>
@@ -32,7 +32,7 @@ export const blogs = [
     category: 'Critique',
     date: 'MAY 2026',
     readTime: '18 MIN READ',
-    image: '/mandara/Assets/blogs/ai-aesthetic-blog.png',
+    image: 'Assets/blogs/ai-aesthetic-blog.png',
     excerpt: 'Why all AI-generated interfaces look the same, and what that sameness is doing to our culture.',
     content: `
       <p>Open ten AI products right now. Any ten. Look at them side by side and notice something: they all look like they were designed by the same person on the same afternoon in the same mood.</p>
@@ -46,7 +46,7 @@ export const blogs = [
     category: 'Design',
     date: 'MAY 2026',
     readTime: '22 MIN READ',
-    image: '/mandara/Assets/blogs/hcd-ai-blog.png',
+    image: 'Assets/blogs/hcd-ai-blog.png',
     excerpt: 'As AI reshapes our digital interfaces, designing for people with genuine empathy has never mattered more.',
     content: `
       <p>We are living through one of the most consequential transitions in the history of product design. Every assumption we held about how users interact with software is being rapidly dismantled by artificial intelligence.</p>
@@ -60,7 +60,7 @@ export const blogs = [
     category: 'Product',
     date: 'JAN 2025',
     readTime: '5 MIN READ',
-    image: '/mandara/Assets/blogs/payment-flow.png',
+    image: 'Assets/blogs/payment-flow.png',
     excerpt: 'How we shaped low-friction, high-trust experiences for millions of shoppers at Amazon Pay by focusing on micro-copy and timing.',
     content: `
       <p>Trust is the invisible currency of the internet. When it comes to payment flows, that currency is more valuable than ever. At Amazon Pay, we spent months iterating on a single goal: how do we make users feel safe without adding friction?</p>
@@ -103,7 +103,7 @@ const ReviewState = ({ amount, items }) => (
     category: 'Process',
     date: 'DEC 2024',
     readTime: '4 MIN READ',
-    image: '/mandara/Assets/blogs/speed-launch.png',
+    image: 'Assets/blogs/speed-launch.png',
     excerpt: 'A fast-track case study on aligning stakeholders, prototyping in code, and shipping with confidence under tight deadlines.',
     content: `
       <p>Speed is a feature. In the fast-paced world of tech, the ability to move from an idea to a live product in less than two weeks is a competitive advantage.</p>
@@ -133,7 +133,7 @@ vercel --prod --confirm</code></pre>
     category: 'Engineering',
     date: 'NOV 2024',
     readTime: '3 MIN READ',
-    image: '/mandara/Assets/blogs/microinteractions.png',
+    image: 'Assets/blogs/microinteractions.png',
     excerpt: 'Small motions that guide users and reduce anxiety in checkout, identity verification, and confirmation screens.',
     content: `
       <p>Microinteractions are the "small moments" where the user and the design interact. While they seem minor, they are the difference between a product that feels "okay" and one that feels "premium."</p>
@@ -174,7 +174,7 @@ vercel --prod --confirm</code></pre>
     category: 'Career',
     date: 'OCT 2024',
     readTime: '6 MIN READ',
-    image: '/mandara/Assets/blogs/designer-coding.png',
+    image: 'Assets/blogs/designer-coding.png',
     excerpt: 'Why learning React changed my design career and how it bridges the gap between Figma files and production environments.',
     content: `
       <p>For years, there has been a debate: "Should designers code?" After a decade in the industry, my answer is a resounding yes. Not because you need to be a full-stack engineer, but because understanding the medium you design for makes you a better designer.</p>

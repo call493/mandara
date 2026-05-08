@@ -121,7 +121,7 @@ export default function NavBar({ activeSectionId }) {
               ))}
             </ul>
             <div className="menu-footer">
-              <p>© 2026 Braxton Mandara</p>
+              <p>© {new Date().getFullYear()} Braxton Mandara</p>
             </div>
           </div>
         </div>
