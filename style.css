@@ -21,6 +21,24 @@
     --accent-glow: rgba(157, 78, 221, 0.5);
     --accent-dim: rgba(157, 78, 221, 0.1);
 
+    /* Dynamic UI component colors */
+    --nav-bg: rgba(5, 5, 7, 0.85);
+    --modal-overlay-bg: rgba(5, 5, 7, 0.9);
+    --btn-nav-bg: rgba(255, 255, 255, 0.05);
+    --btn-pill-sec-hover: rgba(255, 255, 255, 0.05);
+    --shipped-links-bg: rgba(255, 255, 255, 0.02);
+    --shipped-link-bg: rgba(255, 255, 255, 0.01);
+    --shipped-link-fav-border: rgba(255, 255, 255, 0.05);
+    --tech-tag-bg: rgba(255, 255, 255, 0.03);
+
+    --text-highlight: #fff;
+    --card-title-color: #fff;
+    --metric-num-color: #fff;
+    --modal-h2-color: #fff;
+
+    --hamburger-span-bg: white;
+    --tech-tag-hover-color: #fff;
+
     /* Typography */
     --font-heading: 'Syne', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -32,6 +50,52 @@
     --nav-height: 80px;
     --max-width: 1100px;
 }
+
+/* -----------------------------------------------------------
+   1a. LIGHT THEME OVERRIDES
+----------------------------------------------------------- */
+html[data-theme='light'] {
+    /* 60% - The Void (now light canvas) */
+    --bg-main: #f5f5f7;
+    --bg-sec: #ffffff;
+
+    /* 30% - Structure */
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.08);
+    --card-hover: #eaeaea;
+    --text-main: #1d1d1f;
+    --text-muted: #6e6e73;
+
+    /* 10% - Accent */
+    --accent: #8b3dc8; /* Slightly darker violet for better accessibility */
+    --accent-glow: rgba(139, 61, 200, 0.25);
+    --accent-dim: rgba(139, 61, 200, 0.08);
+
+    /* Dynamic UI component colors */
+    --nav-bg: rgba(245, 245, 247, 0.85);
+    --modal-overlay-bg: rgba(245, 245, 247, 0.9);
+    --btn-nav-bg: rgba(0, 0, 0, 0.04);
+    --btn-pill-sec-hover: rgba(0, 0, 0, 0.04);
+    --shipped-links-bg: rgba(0, 0, 0, 0.02);
+    --shipped-link-bg: rgba(0, 0, 0, 0.01);
+    --shipped-link-fav-border: rgba(0, 0, 0, 0.04);
+    --tech-tag-bg: rgba(0, 0, 0, 0.03);
+
+    --text-highlight: #1d1d1f;
+    --card-title-color: #1d1d1f;
+    --metric-num-color: #1d1d1f;
+    --modal-h2-color: #1d1d1f;
+
+    --hamburger-span-bg: #1d1d1f;
+    --tech-tag-hover-color: var(--accent);
+}
+
+html[data-theme='light'] .text-gradient {
+    background: linear-gradient(120deg, #1d1d1f, #6e6e73);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 /* -----------------------------------------------------------
    2. RESET & GLOBAL ELEMENTS
@@ -48,6 +112,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html {
@@ -123,7 +188,7 @@ ul {
 }
 
 .highlight {
-    color: #fff;
+    color: var(--text-highlight);
     font-weight: 500;
 }
 
@@ -139,9 +204,10 @@ ul {
     align-items: center;
     padding: 0 5%;
     height: var(--nav-height);
-    background: rgba(5, 5, 7, 0.8);
+    background: var(--nav-bg);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--card-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .logo a {
@@ -173,10 +239,11 @@ ul {
 
 /* The "Let's Chat" button in nav */
 .btn-nav {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--btn-nav-bg);
     padding: 8px 16px;
     border-radius: 6px;
     border: 1px solid var(--card-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-nav:hover {
@@ -203,9 +270,10 @@ ul {
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(5, 5, 7, 0.8);
+        background: var(--nav-bg);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--card-border);
+        transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     .menu-overlay {
@@ -237,7 +305,7 @@ ul {
     .hamburger-icon span {
         width: 24px;
         height: 2px;
-        background: white;
+        background: var(--hamburger-span-bg);
         transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -422,7 +490,7 @@ section {
 
 .btn-pill.secondary:hover {
     border-color: var(--text-main);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--btn-pill-sec-hover);
 }
 
 /* Metrics */
@@ -443,7 +511,8 @@ section {
     font-family: var(--font-mono);
     font-size: 1.5rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--metric-num-color);
+    transition: color 0.3s ease;
 }
 
 .metric-label {
@@ -519,7 +588,8 @@ section {
     font-family: var(--font-heading);
     font-size: 1.25rem;
     margin-bottom: 20px;
-    color: #fff;
+    color: var(--card-title-color);
+    transition: color 0.3s ease;
 }
 
 .card-icon {
@@ -570,7 +640,8 @@ section {
     padding: 14px;
     border: 1px solid var(--card-border);
     border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--shipped-links-bg);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .shipped-links-title {
@@ -595,7 +666,8 @@ section {
     border-radius: 10px;
     border: 1px solid transparent;
     color: var(--text-main);
-    background: rgba(255, 255, 255, 0.01);
+    background: var(--shipped-link-bg);
+    transition: all 0.3s ease;
 }
 
 .shipped-link:hover {
@@ -608,7 +680,8 @@ section {
     width: 18px;
     height: 18px;
     border-radius: 4px;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 1px var(--shipped-link-fav-border);
+    transition: box-shadow 0.3s ease;
 }
 
 /* -----------------------------------------------------------
@@ -633,18 +706,18 @@ section {
 }
 
 .tech-tag {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--tech-tag-bg);
     border: 1px solid var(--card-border);
     padding: 8px 16px;
     border-radius: 50px;
     font-size: 0.9rem;
-    transition: 0.2s;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .tech-tag:hover {
     background: var(--accent-dim);
     border-color: var(--accent);
-    color: #fff;
+    color: var(--tech-tag-hover-color);
 }
 
 /* -----------------------------------------------------------
@@ -723,13 +796,13 @@ section {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(5, 5, 7, 0.9);
+    background-color: var(--modal-overlay-bg);
     /* Dark overlay */
     backdrop-filter: blur(5px);
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
 .modal.open {
@@ -788,7 +861,8 @@ section {
     font-family: var(--font-heading);
     font-size: 2rem;
     margin-bottom: 16px;
-    color: #fff;
+    color: var(--modal-h2-color);
+    transition: color 0.3s ease;
 }
 
 .modal-text p {
@@ -1075,4 +1149,43 @@ footer {
     .home-blog-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 8px;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--accent);
+    background: var(--accent-dim);
+    transform: scale(1.08);
+}
+
+.theme-toggle-btn:active svg {
+    transform: scale(0.9) rotate(30deg);
+}
+
+.theme-toggle-btn svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-actions-mobile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
