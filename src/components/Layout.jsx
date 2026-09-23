@@ -2,6 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import ParticlesBackground from './ParticlesBackground.jsx';
 import NavBar from './NavBar.jsx';
+import SpotlightEffect from './SpotlightEffect.jsx';
 import useRevealAnimations from '../hooks/useRevealAnimations.js';
 
 export default function Layout() {
@@ -76,6 +77,7 @@ export default function Layout() {
   return (
     <>
       <ParticlesBackground />
+      <SpotlightEffect />
       <div id="progress-bar" />
       <NavBar activeSectionId={activeSectionId} />
 

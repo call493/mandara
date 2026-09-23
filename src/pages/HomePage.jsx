@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectModal from '../components/ProjectModal.jsx';
 import SEO from '../components/SEO.jsx';
+import CountUp from '../components/CountUp.jsx';
 import { blogs } from '../data/blogs';
 import { projects } from '../data/projects';
 import { contact } from '../data/contact';
 
 export default function HomePage() {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const [selectedSkill, setSelectedSkill] = useState(null);
 
   const heroRef = useRef(null);
   const heroPhotoRef = useRef(null);
@@ -84,15 +86,21 @@ export default function HomePage() {
 
           <div className="hero-metrics">
             <div className="metric-item">
-              <span className="metric-number">03+</span>
+              <span className="metric-number">
+                <CountUp end={3} suffix="+" />
+              </span>
               <span className="metric-label">Years Exp</span>
             </div>
             <div className="metric-item">
-              <span className="metric-number">15+</span>
+              <span className="metric-number">
+                <CountUp end={15} suffix="+" />
+              </span>
               <span className="metric-label">Projects Shipped</span>
             </div>
             <div className="metric-item">
-              <span className="metric-number">100%</span>
+              <span className="metric-number">
+                <CountUp end={100} suffix="%" />
+              </span>
               <span className="metric-label">Client Satisfaction</span>
             </div>
           </div>
@@ -142,26 +150,31 @@ export default function HomePage() {
                   {
                     href: 'https://dekut-dsail.github.io',
                     label: 'DSAIL Website',
+                    status: 'Live',
                     src: 'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dekut-dsail.github.io&size=32',
                   },
                   {
                     href: 'https://jasinahub.vercel.app',
                     label: 'Jasina Hub',
+                    status: 'Live',
                     src: 'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://jasinahub.vercel.app&size=32',
                   },
                   {
                     href: 'https://fscratchlabs.com',
                     label: 'FScratch',
+                    status: 'Live',
                     src: 'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://fscratchlabs.com&size=32',
                   },
                   {
                     href: 'https://cor.co.ke',
                     label: 'COR Website',
+                    status: 'Live',
                     src: 'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://cor.co.ke&size=32',
                   },
                   {
                     href: 'https://webp-magic-flax.vercel.app/',
                     label: 'Webp Magic',
+                    status: 'Live',
                     src: 'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://webp-magic-flax.vercel.app/&size=32',
                   },
                 ].map((p) => (
@@ -181,7 +194,10 @@ export default function HomePage() {
                         e.currentTarget.src = faviconFallback;
                       }}
                     />
-                    <span>{p.label}</span>
+                    <span className="shipped-link-label">{p.label}</span>
+                    <span className="live-badge">
+                      <span className="live-dot"></span> {p.status}
+                    </span>
                   </a>
                 ))}
               </div>
@@ -221,25 +237,30 @@ export default function HomePage() {
           <div className="skill-category">
             <h3>Design</h3>
             <div className="tag-container">
-              <span className="tech-tag">Figma</span>
-              <span className="tech-tag">Adobe Ae</span>
-              <span className="tech-tag">Photoshop</span>
-              <span className="tech-tag">Illustrator</span>
-              <span className="tech-tag">Blender</span>
-              <span className="tech-tag">Prototyping</span>
+              {['Figma', 'Adobe Ae', 'Photoshop', 'Illustrator', 'Blender', 'Prototyping'].map((skill) => (
+                <button
+                  key={skill}
+                  className={`tech-tag ${selectedSkill === skill ? 'selected' : ''}`}
+                  onClick={() => setSelectedSkill(selectedSkill === skill ? null : skill)}
+                >
+                  {skill}
+                </button>
+              ))}
             </div>
           </div>
 
           <div className="skill-category">
             <h3>Development</h3>
             <div className="tag-container">
-              <span className="tech-tag">HTML/CSS</span>
-              <span className="tech-tag">JavaScript</span>
-              <span className="tech-tag">React</span>
-              <span className="tech-tag">Tailwind</span>
-              <span className="tech-tag">Typescript</span>
-              <span className="tech-tag">Git</span>
-              <span className="tech-tag">VS Code</span>
+              {['HTML/CSS', 'JavaScript', 'React', 'Tailwind', 'Typescript', 'Git', 'VS Code'].map((skill) => (
+                <button
+                  key={skill}
+                  className={`tech-tag ${selectedSkill === skill ? 'selected' : ''}`}
+                  onClick={() => setSelectedSkill(selectedSkill === skill ? null : skill)}
+                >
+                  {skill}
+                </button>
+              ))}
             </div>
           </div>
         </div>
