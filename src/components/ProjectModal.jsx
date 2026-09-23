@@ -72,6 +72,17 @@ export default function ProjectModal({ project, onClose }) {
             </div>
 
             <p id="modal-desc">{project.desc}</p>
+
+            <div style={{ marginTop: '28px', display: 'flex', gap: '12px' }}>
+              <a
+                href="#contact"
+                onClick={onClose}
+                className="btn-pill primary"
+                style={{ fontSize: '0.85rem', padding: '10px 20px' }}
+              >
+                Inquire About Work
+              </a>
+            </div>
           </div>
         </div>
       </div>

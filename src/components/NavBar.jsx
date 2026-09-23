@@ -1,6 +1,46 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useTheme from '../hooks/useTheme.js';
+import { useSoundFX } from '../hooks/useSoundFX.jsx';
+
+function SoundOnIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+    </svg>
+  );
+}
+
+function SoundOffIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="1" y1="1" x2="23" y2="23" />
+      <path d="M9 9v6a2 2 0 0 0 2 2h1l4 4V3l-3 3" />
+    </svg>
+  );
+}
 
 function SunIcon() {
   return (
@@ -53,6 +93,7 @@ export default function NavBar({ activeSectionId }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const containerRef = useRef(null);
   const { theme, toggleTheme } = useTheme();
+  const { soundEnabled, toggleSound, playHover, playClick } = useSoundFX();
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -94,7 +135,8 @@ export default function NavBar({ activeSectionId }) {
                   <Link
                     to={l.to}
                     className={`btn-nav ${activeSectionId === l.id ? 'active' : ''}`}
-                    onClick={handleLinkClick}
+                    onClick={() => { playClick(); handleLinkClick(); }}
+                    onMouseEnter={playHover}
                   >
                     {l.label}
                   </Link>
@@ -109,7 +151,8 @@ export default function NavBar({ activeSectionId }) {
                         ? 'active'
                         : ''
                     }
-                    onClick={handleLinkClick}
+                    onClick={() => { playClick(); handleLinkClick(); }}
+                    onMouseEnter={playHover}
                   >
                     {l.label}
                   </Link>
@@ -118,8 +161,20 @@ export default function NavBar({ activeSectionId }) {
             )}
             <li>
               <button
+                className="sound-toggle-btn theme-toggle-btn"
+                onClick={() => { playClick(); toggleSound(); }}
+                onMouseEnter={playHover}
+                aria-label={soundEnabled ? 'Mute sound effects' : 'Enable audio UI feedback'}
+                title={soundEnabled ? 'Audio UI enabled' : 'Audio UI disabled'}
+              >
+                {soundEnabled ? <SoundOnIcon /> : <SoundOffIcon />}
+              </button>
+            </li>
+            <li>
+              <button
                 className="theme-toggle-btn"
-                onClick={toggleTheme}
+                onClick={() => { playClick(); toggleTheme(); }}
+                onMouseEnter={playHover}
                 aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
@@ -138,8 +193,15 @@ export default function NavBar({ activeSectionId }) {
 
         <div className="nav-actions-mobile">
           <button
+            className="sound-toggle-btn theme-toggle-btn"
+            onClick={() => { playClick(); toggleSound(); }}
+            aria-label={soundEnabled ? 'Mute sound effects' : 'Enable audio UI feedback'}
+          >
+            {soundEnabled ? <SoundOnIcon /> : <SoundOffIcon />}
+          </button>
+          <button
             className="theme-toggle-btn"
-            onClick={toggleTheme}
+            onClick={() => { playClick(); toggleTheme(); }}
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
