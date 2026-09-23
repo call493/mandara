@@ -67,10 +67,10 @@ export default function HomePage() {
             Systems.
           </h1>
           <p className="section__text__p2">
-            I&apos;m Braxton. I bridge the gap between{' '}
+            I&apos;m Braxton Mandara. I bridge the gap between{' '}
             <span className="highlight">product design</span> and{' '}
-            <span className="highlight">engineering</span> to build resilient
-            digital experiences.
+            <span className="highlight">engineering</span> to build scalable systems and workflows for resilient
+            and seamless digital experiences.
           </p>
 
           <div className="hero-ctas">
@@ -145,9 +145,9 @@ export default function HomePage() {
                     src: 'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dekut-dsail.github.io&size=32',
                   },
                   {
-                    href: 'https://dsail-health.vercel.app',
-                    label: 'DSAIL Health Data Collection App',
-                    src: 'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dsail-health.vercel.app&size=32',
+                    href: 'https://jasinahub.vercel.app',
+                    label: 'Jasina Hub',
+                    src: 'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://jasinahub.vercel.app&size=32',
                   },
                   {
                     href: 'https://fscratchlabs.com',
@@ -191,10 +191,9 @@ export default function HomePage() {
           <div className="bento-card bio-card hidden delay-300">
             <h3 className="card-title">Bio</h3>
             <p>
-              I&apos;m a graduate from <b>Dedan Kimathi University of Technology</b> and a Principal
-              Partner at Avalanche Revamp. I don&apos;t just design screens; I build systems. My
-              background in Computer Science allows me to speak the language of developers,
-              ensuring that my designs are not just beautiful, but feasible and scalable.
+              Human Centred Design (HCD) expert with a strong background in UI/UX design and full stack software development, bridging the gap between ideation to deployment through data-driven and scalable approaches.
+              My background in Computer Science allows me to speak the language of developers and software engineers,
+              ensuring that my designs are beautiful, my layouts are intuitive and the system overall is feasible and scalable.
             </p>
           </div>
 
@@ -238,6 +237,7 @@ export default function HomePage() {
               <span className="tech-tag">JavaScript</span>
               <span className="tech-tag">React</span>
               <span className="tech-tag">Tailwind</span>
+              <span className="tech-tag">Typescript</span>
               <span className="tech-tag">Git</span>
               <span className="tech-tag">VS Code</span>
             </div>
